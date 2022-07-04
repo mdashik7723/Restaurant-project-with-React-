@@ -5,7 +5,6 @@ import About from "./About";
 import Contact from "./Contact";
 import {Routes, Redirect } from "react-router-dom";
 
-
 const Body = () => {
     return (
         <div>
