@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 import DishDetails from "./DishDetails";
 import {CardColumns, Modal, ModalBody, ModalFooter, Button} from "reactstrap";
 
-class Menu extends Component {
+export default class Menu extends Component {
     state = {
         dishes: DISHES,
         selectedDish: null,
@@ -55,4 +55,4 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+// export default Menu;
