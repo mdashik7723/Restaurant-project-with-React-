@@ -3,7 +3,7 @@ import Menu from "./Menu";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
-import {Routes, Route, Redirect, Switch} from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 
 
 const Body = () => {
