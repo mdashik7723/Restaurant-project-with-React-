@@ -58,7 +58,7 @@ class CommentForm extends Component{
                     <br/>
                     <Input
                         type="textarea"
-                        name="comments"
+                        name="comment"
                         value={this.state.comment}
                         placeholder="Your Comments"
                         onChange={this.handleInputChange}
