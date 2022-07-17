@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Form, Button, Input} from "reactstrap";
 import * as events from "events";
+import {connect} from "react-redux";
 
 
 class CommentForm extends Component{
@@ -9,7 +10,7 @@ class CommentForm extends Component{
         this.state = {
             author: "",
             rating: "",
-            comments: ""
+            comment: ""
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,10 +24,19 @@ class CommentForm extends Component{
     }
     handleSubmit = event => {
         console.log(this.state)
+        this.props.dispatch({
+            type: "ADD_COMMENT",
+            payload: {
+                dishId: this.props.dishId,
+                author: this.state.author,
+                rating: this.state.rating,
+                comment: this.state.comment
+            }
+        })
         this.setState({
             author: "",
             rating: "",
-            comments: ""
+            comment: ""
         });
         event.preventDefault();
     }
@@ -58,7 +68,7 @@ class CommentForm extends Component{
                     <Input
                         type="textarea"
                         name="comments"
-                        value={this.state.comments}
+                        value={this.state.comment}
                         placeholder="Your Comments"
                         onChange={this.handleInputChange}
                         required/>
@@ -71,4 +81,4 @@ class CommentForm extends Component{
     }
 }
 
-export default CommentForm;
+export default connect() (CommentForm);
