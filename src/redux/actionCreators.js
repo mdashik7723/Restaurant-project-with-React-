@@ -1,4 +1,7 @@
 import  * as actionTypes from './actionTypes'
+import DISHES from "../Data/dishes";
+import dishes from "../Data/dishes";
+import {type} from "@testing-library/user-event/dist/type";
 
 
 export const addComment =( dishId, author, rating, comment ) =>({
@@ -10,3 +13,25 @@ export const addComment =( dishId, author, rating, comment ) =>({
             comment: comment
     }
 });
+
+export const loadDishes = dishes => ({
+    type: actionTypes.LOAD_DISHES,
+    payload: dishes
+});
+
+
+export const dishLoading = () => ({
+    type: actionTypes.DISHES_LOADING
+
+});
+
+export const fetchDishes = () =>{
+    return dispatch => {
+        dispatch(dishLoading());
+
+        setTimeout(() => {
+            dispatch(loadDishes(DISHES));
+        }, 2000);
+    }
+
+}

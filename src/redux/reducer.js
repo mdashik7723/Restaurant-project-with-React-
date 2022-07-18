@@ -1,14 +1,27 @@
-import DISHES from "../Data/dishes";
 import COMMENTS from "../Data/Comments";
 import { combineReducers} from "redux";
 import {type} from "@testing-library/user-event/dist/type";
 import * as actionTypes from './actionTypes'
+import dishes from "../Data/dishes";
 
 
 
 
-const dishReducer = (dishState = DISHES, action) => {
+const dishReducer = (dishState ={isLoading:false,dishes: []}, action) => {
     switch (action,type){
+        case actionTypes.DISHES_LOADING:
+            return {
+                ...dishState,
+                isLoading: true,
+                dishes: []
+            }
+
+        case actionTypes.LOAD_DISHES:
+            return {
+                ...dishState,
+                isLoading: false,
+                dishes: action.payload
+            }
         default:
             return dishState;
     }
