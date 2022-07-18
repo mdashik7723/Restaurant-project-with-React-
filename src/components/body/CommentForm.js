@@ -47,8 +47,9 @@ class CommentForm extends Component{
                     <Input
                         type="select"
                         name="rating"
-                        value={this.state.rating}>
-                        onChange={this.handleInputChange}
+                        value={this.state.rating}
+                        placeholder="Your Comments">
+                        onChange = {this.handleInputChange}
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -60,12 +61,12 @@ class CommentForm extends Component{
                         type="textarea"
                         name="comment"
                         value={this.state.comment}
-                        placeholder="Your Comments"
+                        placeholder="Your Comment"
                         onChange={this.handleInputChange}
                         required/>
                     <br/>
 
-<Button type="submit">Submit Comments</Button>
+<Button type="submit">Submit Comment</Button>
                 </Form>
             </div>
         )

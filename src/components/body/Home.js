@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Loading from "./Loading";
 
 
 class Home extends Component {
@@ -6,7 +7,7 @@ class Home extends Component {
         document.title = "Ashik's Restaurant";
         return(
             <div>
-
+                <Loading/>
             </div>
         );
     }
