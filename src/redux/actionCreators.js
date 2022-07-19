@@ -25,14 +25,11 @@ export const dishLoading = () => ({
 
 });
 
-export const fetchDishes = () =>{
-    return dispatch => {
+export const fetchDishes = () =>dispatch => {
         dispatch(dishLoading());
 
         setTimeout(() => {
             dispatch(loadDishes(DISHES));
         },
             2000);
-    }
-
 }
