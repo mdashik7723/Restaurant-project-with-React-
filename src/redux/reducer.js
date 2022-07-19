@@ -7,8 +7,8 @@ import dishes from "../Data/dishes";
 
 
 
-const dishReducer = (dishState ={isLoading:false,dishes: []}, action) => {
-    switch (action,type){
+const dishReducer = (dishState ={isLoading:false,dishes: [] }, action) => {
+    switch (action.type){
         case actionTypes.DISHES_LOADING:
             return {
                 ...dishState,

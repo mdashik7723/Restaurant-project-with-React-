@@ -4,14 +4,14 @@ import dishes from "../Data/dishes";
 import {type} from "@testing-library/user-event/dist/type";
 
 
-export const addComment =( dishId, author, rating, comment ) =>({
+export const addComment =( dishId, author, rating, comment ) => ( {
         type: actionTypes.ADD_COMMENT,
-            payload: {
-        dishId: dishId,
+        payload: {
+            dishId: dishId,
             author: author,
             rating: rating,
             comment: comment
-    }
+     }
 });
 
 export const loadDishes = dishes => ({
@@ -31,7 +31,8 @@ export const fetchDishes = () =>{
 
         setTimeout(() => {
             dispatch(loadDishes(DISHES));
-        }, 2000);
+        },
+            2000);
     }
 
 }

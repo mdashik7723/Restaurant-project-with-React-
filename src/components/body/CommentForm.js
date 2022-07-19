@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Form, Button, Input} from "reactstrap";
-import * as events from "events";
+import {connect} from "react-redux";
+import * as event from "events";
 
 
 
@@ -33,6 +34,7 @@ class CommentForm extends Component{
     }
 
     render() {
+        console.log(this.props);
         return(
             <div>
                 <Form onSubmit= {this.handleSubmit}>
@@ -48,11 +50,11 @@ class CommentForm extends Component{
                         type="select"
                         name="rating"
                         value={this.state.rating}
-                        placeholder="Your Comments">
                         onChange = {this.handleInputChange}
+                        placeholder="Your Comments">
                         <option>1</option>
                         <option>2</option>
-                        <option>3</option>
+                         <option>3</option>
                         <option>4</option>
                         <option>5</option>
                     </Input>
@@ -73,4 +75,4 @@ class CommentForm extends Component{
     }
 }
 
-export default CommentForm;
+export default connect() (CommentForm);

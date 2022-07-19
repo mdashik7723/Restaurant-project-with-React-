@@ -18,8 +18,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch =>{
     return{
-        addComment: ( dishId, author, rating, comment ) => dispatch (addComment(dishId,author,rating,comment)),
-        fetchDishes: () => dispatch(fetchDishes())
+        addComment: ( dishId, author, rating, comment ) => dispatch (addComment(dishId, author, rating, comment)),
+        fetchDishes: () => dispatch(fetchDishes()),
 
     }
 }
