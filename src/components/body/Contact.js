@@ -3,6 +3,12 @@ import {Button, Form, FormGroup, Label, Input, Col} from "reactstrap";
 import { LocalForm, Control, Errors } from "react-redux-form";
 
 
+const required = val => val && val.length;
+const isNumber = val => !isNaN(Number(val));
+const validEmail = val =>  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(val);
+
+
+
 class Contact extends Component {
 
     handleSubmit = values => {
@@ -27,7 +33,20 @@ class Contact extends Component {
                                            name="firstname"
                                            placeholder="First name"
                                         className="form-control"
+                                        validators={{
+                                            required
+                                        }}
                                     />
+                                    < Errors
+                                        className="text-danger"
+                                        model=".firstname"
+                                        show="touched"
+                                        messages={
+                                            {
+                                                required: "Required"
+                                            }
+                                        }
+                                       />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -38,7 +57,22 @@ class Contact extends Component {
                                            name="lastname"
                                            placeholder="LastName"
                                         className="form-control"
+                                        validators={{
+                                            required
+                                        }}
                                     />
+
+                                    < Errors
+                                        className="text-danger"
+                                        model=".lastname"
+                                        show="touched"
+                                        messages={
+                                            {
+                                                required: "Required"
+                                            }
+                                        }
+                                    />
+
                                 </Col>
                             </FormGroup>
 
@@ -50,7 +84,24 @@ class Contact extends Component {
                                            name="telnum"
                                            placeholder="Tel. Number"
                                         className="form-control"
+                                        validators={{
+                                            required,
+                                            isNumber
+                                        }}
                                     />
+
+                                    < Errors
+                                        className="text-danger"
+                                        model=".telnum"
+                                        show="touched"
+                                        messages={
+                                            {
+                                                required: "Required, ",
+                                                isNumber: "Invalid Number!"
+                                            }
+                                        }
+                                    />
+
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -61,6 +112,22 @@ class Contact extends Component {
                                            name="email"
                                            placeholder="Email Address"
                                         className="form-control"
+
+                                        validators={{
+                                            required,
+                                            validEmail
+                                        }}
+                                    />
+
+                                    < Errors
+                                        className="text-danger"
+                                        model=".email"
+                                        show="touched"
+                                        messages={
+                                            {
+                                                required: "Required"
+                                            }
+                                        }
                                     />
                                 </Col>
                             </FormGroup>
@@ -91,10 +158,25 @@ class Contact extends Component {
                                 <Label htmlFor="message" md={2}> Your Feedback</Label>
                                 <Col md={10}>
                                     <Control.textarea
-                                        className="form-control"
-                                        model=".textarea"
-                                           name="message">
+                                        name="message"
+                                        model=".message"
+                                        rows="12"
+                                        className="form-control">
+                                        validators={{
+                                        required
+                                    }}
                                     </Control.textarea>
+                                    < Errors
+                                        className="text-danger"
+                                        model=".message"
+                                        show="touched"
+                                        messages={
+                                            {
+                                                required: "Required"
+                                            }
+                                        }
+                                    />
+
                                 </Col>
                             </FormGroup>
                             <FormGroup>
