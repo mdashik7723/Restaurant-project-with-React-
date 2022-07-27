@@ -5,7 +5,7 @@ import { LocalForm, Control, Errors } from "react-redux-form";
 
 const required = val => val && val.length;
 const isNumber = val => !isNaN(Number(val));
-const validEmail = val =>  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(val);
+const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 
 
