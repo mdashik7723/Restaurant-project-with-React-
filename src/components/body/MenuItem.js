@@ -1,9 +1,6 @@
 import React from "react";
 import { Card, CardImg, CardImgOverlay, CardBody, CardTitle} from "reactstrap";
 
-
-
-
 const MenuItem = props => {
     console.log(props);
     return (
@@ -22,13 +19,10 @@ const MenuItem = props => {
 
                         </CardTitle>
                     </CardImgOverlay>
-
                 </CardBody>
             </Card>
-
         </div>
     );
 }
-
 
 export default MenuItem;

@@ -34,9 +34,7 @@ const commentReducer = (commentState = COMMENTS, action) => {
             return commentState;
     }
 }
-
 export const Reducer = combineReducers({
-
     dishes: dishReducer,
     comments: commentReducer,
         ...createForms({
