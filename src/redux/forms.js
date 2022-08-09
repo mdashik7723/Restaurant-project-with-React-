@@ -7,5 +7,4 @@ export const InitialContactForm = {
     agree: false,
     contactType: 'Tel.',
     message: ''
-
 }
