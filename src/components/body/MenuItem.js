@@ -24,5 +24,4 @@ const MenuItem = props => {
         </div>
     );
 }
-
 export default MenuItem;
