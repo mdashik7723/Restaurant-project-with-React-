@@ -1,7 +1,6 @@
 import  * as actionTypes from './actionTypes'
-import DISHES from "../Data/dishes";
-import dishes from "../Data/dishes";
-import {type} from "@testing-library/user-event/dist/type";
+import {baseUrl} from "./baseUrl";
+import axios from 'axios';
 
 
 export const addComment =( dishId, author, rating, comment ) => ( {
@@ -10,9 +9,32 @@ export const addComment =( dishId, author, rating, comment ) => ( {
             dishId: dishId,
             author: author,
             rating: rating,
-            comment: comment
+            comment: comment,
      }
 });
+
+
+export const commentLoading = () => ({
+    type: actionTypes.COMMENT_LOADING
+})
+
+export const loadComments = comments => ({
+    type: actionTypes.LOAD_COMMENTS,
+    payload: comments
+})
+
+export const fetchComments = () => dispatch => {
+    dispatch(commentLoading());
+}
+
+function dispatch(loadComments1) {
+    return undefined;
+}
+
+axios.get(baseUrl + 'comments')
+    .then(response=>response.data)
+    .then(comments => dispatch (loadComments(comments)))
+
 
 export const loadDishes = dishes => ({
     type: actionTypes.LOAD_DISHES,
@@ -28,8 +50,7 @@ export const dishLoading = () => ({
 export const fetchDishes = () =>dispatch => {
         dispatch(dishLoading());
 
-        setTimeout(() => {
-            dispatch(loadDishes(DISHES));
-        },
-            2000);
+        axios.get(baseUrl + "dishes")
+            .then(response => response.data)
+            .then(dishes => dispatch(loadDishes(dishes)));
 }
