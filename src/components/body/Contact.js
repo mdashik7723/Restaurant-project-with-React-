@@ -29,7 +29,7 @@ const isNumber = val => !isNaN(Number(val));
 class Contact extends Component {
 
     handleSubmit = values => {
-        console.log(values);
+        // console.log(values);
         this.props.resetFeedbackForm();
     }
 

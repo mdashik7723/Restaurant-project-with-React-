@@ -3,7 +3,7 @@ import { Card, CardImg, CardImgOverlay, CardBody, CardTitle} from "reactstrap";
 import { baseUrl} from "../../redux/baseUrl";
 
 const MenuItem = props => {
-    console.log(props);
+    console.log("ashik" + JSON.stringify(props));
     return (
         <div>
             <Card style={{margin: "10px"}}>
